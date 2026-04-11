@@ -1,21 +1,21 @@
-**Project Title:** Cybersecurity Awareness Chatbot
+## Project Title: Cybersecurity Awareness Chatbot
 Name: Ayakha Twalo
 Student Number: ST10490430
 Module: Programming
 Module Code: PROG6221
 
-**Project Overview**
+## Project Overview
 
 This project is a C# console application that simulates a basic cybersecurity awareness chatbot. The chatbot interacts with users and provides guidance on online safety practices such as password security, phishing awareness, and safe browsing.
 
-**Project Goals and Objectives**
+## Project Goals and Objectives
 
 - Create a chatbot that interacts with users through the console
 - Provide basic cybersecurity awareness information
 - Apply string manipulation and conditional logic
 - Improve user experience using colours, audio, and formatting
 
-**Key Features and Functionality**
+## Key Features and Functionality
 
 - Voice Greeting: Plays a recorded WAV file when the program starts
 - ASCII Art: Displays a visual chatbot logo in the console
@@ -25,13 +25,13 @@ This project is a C# console application that simulates a basic cybersecurity aw
 - Continuous Chat: Runs in a loop until the user exits the program
 - Console Styling: Uses colours and formatting to improve readability
 
-**Timeline and Milestones**
+## Timeline and Milestones
 
 - Part 1: 13 April 2026 : Basic chatbot with interaction, audio, and UI enhancements
 - Part 2: 29 May 2026
 - Final POE: (To be completed later)
 
-**Changelog**
+## Changelog
 
 - 28 March 2026
 Created the project and set up the basic structure in Visual Studio
@@ -67,7 +67,7 @@ Final improvements and testing
 Added loop to allow continuous conversation until user exits
 Refined code structure and ensured all features work correctly
 
-**References**
+## References
 
 Microsoft Docs. (2025). C# Console Applications.
 Available at: https://learn.microsoft.com/

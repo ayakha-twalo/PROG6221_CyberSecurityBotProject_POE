@@ -1,4 +1,4 @@
-Project Title: Cybersecurity Awareness Chatbot
+**Project Title:** Cybersecurity Awareness Chatbot
 Name: Ayakha Twalo
 Student Number: ST10490430
 Module: Programming

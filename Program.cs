@@ -8,7 +8,7 @@ class Program
         // Calls the method in AudioPlayer class to play a WAV greeting
         AudioPlayer.PlayGreeting();
 
-        // Adds visual interest when the chatbot starts
+        // Adds visuals when the chatbot starts
         Console.ForegroundColor = ConsoleColor.Magenta; // Change text color
         Console.WriteLine(@"
    ____        _               ____        _   
@@ -18,7 +18,7 @@ class Program
   \____| \__, |_.__/ \___|_|  |____/ \___/ \__|
          |___/                                
 ");
-        // Reset text color to default
+        // reset text color to default
         Console.ResetColor();
  
         // Makes it clear the program is a Cybersecurity Awareness Bot

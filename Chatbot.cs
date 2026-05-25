@@ -11,7 +11,7 @@ class Chatbot
         {
             Console.WriteLine("I'm just a bot, but I'm here to help!");
         }
-        else if (input.Contains("purpose"))
+        else if (input.Contains("What is your purpose"))
         {
             Console.WriteLine("I help you stay safe online.");
         }

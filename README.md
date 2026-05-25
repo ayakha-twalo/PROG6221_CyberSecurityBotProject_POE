@@ -5,14 +5,19 @@ Module: Programming
 Module Code: PROG6221  
 
 ---
+## Project Title: Cybersecurity Awareness Chatbot
+Name: Ayakha Twalo
+Student Number: ST10490430
+Module: Programming
+Module Code: PROG6221
 
-**Project Overview**
+## Project Overview
 
 This project is a C# WPF application that simulates a cybersecurity awareness chatbot. The chatbot interacts with users and provides guidance on online safety practices such as password security, phishing awareness, malware protection, and safe browsing.
 
 ---
 
-**Project Goals and Objectives**
+## Project Goals and Objectives
 
 - Create a chatbot that interacts with users through a graphical interface  
 - Provide basic cybersecurity awareness information  
@@ -21,7 +26,7 @@ This project is a C# WPF application that simulates a cybersecurity awareness ch
 
 ---
 
-**Key Features and Functionality**
+## Key Features and Functionality
 
 - WPF Graphical User Interface (GUI)  
 - Voice Greeting (WAV file plays on startup)  
@@ -35,7 +40,7 @@ This project is a C# WPF application that simulates a cybersecurity awareness ch
 
 ---
 
-**Timeline and Milestones**
+## Timeline and Milestones
 
 - Part 1: 13 April 2026 : Basic console chatbot with interaction and audio  
 - Part 2: 29 May 2026 : WPF chatbot with GUI, sentiment detection, and memory  
@@ -43,7 +48,7 @@ This project is a C# WPF application that simulates a cybersecurity awareness ch
 
 ---
 
-**Changelog**
+## Changelog
 
 - 28 March 2026  
 Created the project and set up the basic structure in Visual Studio  
@@ -74,10 +79,12 @@ Added GUI, sentiment detection, memory system, and improved chatbot logic
 
 ---
 
-**References**
+## References
 
 Microsoft Docs. (2025). C# Console Applications.  
 https://learn.microsoft.com/
 
 W3Schools. (2025). C# Strings and Methods.  
 https://www.w3schools.com/cs/
+W3Schools. (2025). C# Strings and Methods.
+Available at: https://www.w3schools.com/cs/

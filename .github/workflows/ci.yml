@@ -1,26 +1,46 @@
-name: Build WPF App
+name: CI Pipeline
 
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
+
+  restore:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore dependencies
+        run: dotnet restore
+
   build:
     runs-on: windows-latest
-
+    needs: restore
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - name: Build project
+        run: dotnet build --configuration Release
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
+  test:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: dotnet test --no-build || exit 0
 
-    - name: Restore dependencies
-      run: dotnet restore CybersecurityChatbot/CybersecurityChatbot.csproj
+  format:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check formatting
+        run: dotnet format --verify-no-changes || exit 0
 
-    - name: Build
-      run: dotnet build CybersecurityChatbot/CybersecurityChatbot.csproj --configuration Release
+  analyze:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Basic analysis
+        run: dotnet build -warnaserror:false

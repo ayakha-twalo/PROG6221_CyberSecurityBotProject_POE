@@ -12,35 +12,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show repo files (DEBUG)
+      - name: Show repo structure (debug)
         run: dir
 
-      - name: Find solution file
-        id: find_sln
-        shell: pwsh
-        run: |
-          $sln = Get-ChildItem -Recurse -Filter *.sln | Select-Object -First 1
-          echo "Solution found: $sln"
-          echo "sln_path=$($sln.FullName)" >> $env:GITHUB_OUTPUT
-
-      - name: Setup .NET SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
-      - name: Show .NET info
-        run: dotnet --info
+      - name: Restore solution
+        run: dotnet restore CybersecurityChatbot/CybersecurityChatbot.sln
 
-      - name: Restore
-        run: dotnet restore "${{ steps.find_sln.outputs.sln_path }}" --verbosity detailed
+      - name: Build solution
+        run: dotnet build CybersecurityChatbot/CybersecurityChatbot.sln --configuration Release --no-restore
 
-      - name: Build
-        run: dotnet build "${{ steps.find_sln.outputs.sln_path }}" --configuration Release --no-restore
-
-      - name: Test (non-blocking)
-        run: dotnet test "${{ steps.find_sln.outputs.sln_path }}" --no-build
+      - name: Test (optional)
+        run: dotnet test CybersecurityChatbot/CybersecurityChatbot.sln --no-build
         continue-on-error: true
 
-      - name: Format check (non-blocking)
-        run: dotnet format "${{ steps.find_sln.outputs.sln_path }}" --verify-no-changes
+      - name: Format check (optional)
+        run: dotnet format CybersecurityChatbot/CybersecurityChatbot.sln --verify-no-changes
         continue-on-error: true

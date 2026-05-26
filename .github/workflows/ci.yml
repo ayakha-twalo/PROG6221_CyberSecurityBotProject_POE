@@ -5,24 +5,9 @@ on:
   pull_request:
 
 jobs:
-
-  restore:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Restore solution
-        run: dotnet restore CybersecurityChatbot.sln
-
-
   build:
     runs-on: windows-latest
-    needs: restore
+
     steps:
       - uses: actions/checkout@v4
 
@@ -31,50 +16,11 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Build solution
-        run: dotnet build CybersecurityChatbot.sln --configuration Release --no-restore
+      - name: Restore
+        run: dotnet restore CybersecurityChatbot.sln
 
+      - name: Build
+        run: dotnet build CybersecurityChatbot.sln --configuration Release
 
-  test:
-    runs-on: windows-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Run tests
-        run: dotnet test CybersecurityChatbot.sln --no-build || exit 0
-
-
-  format:
-    runs-on: windows-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Check formatting
-        run: dotnet format CybersecurityChatbot.sln --verify-no-changes || exit 0
-
-
-  analyze:
-    runs-on: windows-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Build with warnings enabled
-        run: dotnet build CybersecurityChatbot.sln -warnaserror:false
+      - name: Test
+        run: dotnet test CybersecurityChatbot.sln --configuration Release

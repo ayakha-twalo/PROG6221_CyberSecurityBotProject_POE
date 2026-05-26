@@ -12,11 +12,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show repository structure (CRITICAL DEBUG)
+      - name: Show repo files (DEBUG)
         run: dir
 
-      - name: Search for solution file (CRITICAL DEBUG)
-        run: Get-ChildItem -Recurse *.sln
+      - name: Find solution file
+        id: find_sln
+        shell: pwsh
+        run: |
+          $sln = Get-ChildItem -Recurse -Filter *.sln | Select-Object -First 1
+          echo "Solution found: $sln"
+          echo "sln_path=$($sln.FullName)" >> $env:GITHUB_OUTPUT
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
@@ -26,20 +31,16 @@ jobs:
       - name: Show .NET info
         run: dotnet --info
 
-      - name: Restore solution (auto-detect)
-        run: |
-          dotnet restore **/*.sln --verbosity detailed
+      - name: Restore
+        run: dotnet restore "${{ steps.find_sln.outputs.sln_path }}" --verbosity detailed
 
-      - name: Build solution (auto-detect)
-        run: |
-          dotnet build **/*.sln --configuration Release --verbosity detailed
+      - name: Build
+        run: dotnet build "${{ steps.find_sln.outputs.sln_path }}" --configuration Release --no-restore
 
-      - name: Run tests (non-blocking)
-        run: |
-          dotnet test **/*.sln --no-build --verbosity normal
+      - name: Test (non-blocking)
+        run: dotnet test "${{ steps.find_sln.outputs.sln_path }}" --no-build
         continue-on-error: true
 
       - name: Format check (non-blocking)
-        run: |
-          dotnet format **/*.sln --verify-no-changes
+        run: dotnet format "${{ steps.find_sln.outputs.sln_path }}" --verify-no-changes
         continue-on-error: true

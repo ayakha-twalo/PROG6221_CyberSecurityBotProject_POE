@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|c:\\users\\ayakha\\documents\\cybersecuritybot\\cybersecuritybot\\cybersecuritychatbot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|c:\\users\\ayakha\\documents\\cybersecuritybot\\cybersecuritybot\\cybersecuritychatbot\\keywordresponder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|solutionrelative:keywordresponder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|c:\\users\\ayakha\\documents\\cybersecuritybot\\cybersecuritybot\\cybersecuritychatbot\\chatbot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|solutionrelative:chatbot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|c:\\users\\ayakha\\documents\\cybersecuritybot\\cybersecuritybot\\cybersecuritychatbot\\audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3ACA11A9-0EF8-A698-AF03-F9F11BD2B6C0}|CybersecurityChatbot.csproj|solutionrelative:audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +31,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T21:22:36.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KeywordResponder.cs",
+              "DocumentMoniker": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\KeywordResponder.cs",
+              "RelativeDocumentMoniker": "KeywordResponder.cs",
+              "ToolTip": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\KeywordResponder.cs",
+              "RelativeToolTip": "KeywordResponder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T21:24:01.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatBot.cs",
+              "DocumentMoniker": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\ChatBot.cs",
+              "RelativeDocumentMoniker": "ChatBot.cs",
+              "ToolTip": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\ChatBot.cs",
+              "RelativeToolTip": "ChatBot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T21:24:00.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AudioPlayer.cs",
               "DocumentMoniker": "C:\\Users\\Ayakha\\Documents\\CyberSecurityBot\\CyberSecurityBot\\CyberSecurityChatbot\\AudioPlayer.cs",
               "RelativeDocumentMoniker": "AudioPlayer.cs",
@@ -26,8 +75,7 @@
               "RelativeToolTip": "AudioPlayer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T21:15:28.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T21:15:28.54Z"
             }
           ]
         }

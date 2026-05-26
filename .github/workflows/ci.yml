@@ -9,27 +9,30 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Show repo structure (DEBUG)
+        run: dir
+
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
-      - name: Show repository files (debug)
-        run: dir
+      - name: Show .NET info (DEBUG)
+        run: dotnet --info
 
-      - name: Restore solution
-        run: dotnet restore ./CybersecurityChatbot.sln -v diag
+      - name: Restore solution (DETAILED LOGS)
+        run: dotnet restore CybersecurityChatbot.sln --verbosity detailed
 
-      - name: Build solution
-        run: dotnet build ./CybersecurityChatbot.sln --configuration Release --no-restore
+      - name: Build solution (DETAILED LOGS)
+        run: dotnet build CybersecurityChatbot.sln --configuration Release --verbosity detailed
 
-      - name: Run tests (if any)
-        run: dotnet test ./CybersecurityChatbot.sln --configuration Release --no-build
+      - name: Run tests (safe, optional)
+        run: dotnet test CybersecurityChatbot.sln --no-build --verbosity normal
         continue-on-error: true
 
-      - name: Check formatting (optional)
-        run: dotnet format ./CybersecurityChatbot.sln --verify-no-changes
+      - name: Check formatting (safe, optional)
+        run: dotnet format CybersecurityChatbot.sln --verify-no-changes
         continue-on-error: true

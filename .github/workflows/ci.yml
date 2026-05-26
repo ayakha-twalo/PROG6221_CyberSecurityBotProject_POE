@@ -12,27 +12,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show repo structure (DEBUG)
+      - name: Show repository structure (CRITICAL DEBUG)
         run: dir
+
+      - name: Search for solution file (CRITICAL DEBUG)
+        run: Get-ChildItem -Recurse *.sln
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
-      - name: Show .NET info (DEBUG)
+      - name: Show .NET info
         run: dotnet --info
 
-      - name: Restore solution (DETAILED LOGS)
-        run: dotnet restore CybersecurityChatbot.sln --verbosity detailed
+      - name: Restore solution (auto-detect)
+        run: |
+          dotnet restore **/*.sln --verbosity detailed
 
-      - name: Build solution (DETAILED LOGS)
-        run: dotnet build CybersecurityChatbot.sln --configuration Release --verbosity detailed
+      - name: Build solution (auto-detect)
+        run: |
+          dotnet build **/*.sln --configuration Release --verbosity detailed
 
-      - name: Run tests (safe, optional)
-        run: dotnet test CybersecurityChatbot.sln --no-build --verbosity normal
+      - name: Run tests (non-blocking)
+        run: |
+          dotnet test **/*.sln --no-build --verbosity normal
         continue-on-error: true
 
-      - name: Check formatting (safe, optional)
-        run: dotnet format CybersecurityChatbot.sln --verify-no-changes
+      - name: Format check (non-blocking)
+        run: |
+          dotnet format **/*.sln --verify-no-changes
         continue-on-error: true

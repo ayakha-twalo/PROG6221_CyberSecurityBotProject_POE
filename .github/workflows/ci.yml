@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Bot Build
 
 on:
   push:
@@ -12,9 +12,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show repo structure (debug)
-        run: dir
-
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -25,11 +22,3 @@ jobs:
 
       - name: Build solution
         run: dotnet build CybersecurityChatbot/CybersecurityChatbot.sln --configuration Release --no-restore
-
-      - name: Test (optional)
-        run: dotnet test CybersecurityChatbot/CybersecurityChatbot.sln --no-build
-        continue-on-error: true
-
-      - name: Format check (optional)
-        run: dotnet format CybersecurityChatbot/CybersecurityChatbot.sln --verify-no-changes
-        continue-on-error: true

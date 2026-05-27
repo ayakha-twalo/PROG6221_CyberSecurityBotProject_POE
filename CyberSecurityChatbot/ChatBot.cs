@@ -110,7 +110,12 @@ What is your name?";
             {
                 lastTopic = keywords.GetTopic(input);
 
-                string personalised = memory.GetPersonalisedOpener();
+                string personalised = "";
+
+                if (!string.IsNullOrEmpty(lastTopic))
+                {
+                    personalised = $"As someone interested or worried about {lastTopic}, ";
+                }
 
                 return sentimentResponse +
                        personalised +

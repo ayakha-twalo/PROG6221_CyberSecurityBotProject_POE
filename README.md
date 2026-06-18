@@ -284,7 +284,7 @@ Final chatbot release featuring:
 
 ## GitHub Actions Build Status
 
-![GitHub Actions](screenshots/github-actions.png)
+![GitHub Actions](screenshots/github-actions-2.png)
 
 ---
 

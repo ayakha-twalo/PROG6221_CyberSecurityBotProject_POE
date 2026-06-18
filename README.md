@@ -163,7 +163,134 @@ https://youtu.be/VPbCCZRxPAM
 - 24 May 2026: Upgraded to WPF 
 - 25 May 2026: Added GUI, memory, and sentiment detection 
 
+## Features Implemented in Part 3
+
+### Step 3.1: Install Newtonsoft.Json
+
+If the package is not automatically restored:
+
+1. Right-click the project in Solution Explorer
+2. Select **Manage NuGet Packages**
+3. Click **Browse**
+4. Search for **Newtonsoft.Json**
+5. Click **Install**
+6. Accept the license agreement if prompted
+
+## Task Storage
+
+The application stores cybersecurity tasks using a JSON file named `tasks.json`.
+
+* No manual setup is required.
+* The file is automatically created when the first task is added.
+* Tasks remain saved between application sessions.
+
+
+## Task Assistant
+- Add cybersecurity-related tasks
+- Store task title, description, and reminder information
+- Mark tasks as completed
+- Delete tasks
+- View all saved tasks
+- Task data persistence using JSON file storage (tasks.json)
+
+## Reminder System
+- Users can create reminders for cybersecurity tasks
+- Reminder information is stored with each task
+- Reminder actions are recorded in the activity log
+
+## Cybersecurity Quiz
+- 15 cybersecurity awareness questions
+- Multiple-choice question format
+- Immediate feedback after each answer
+- Score tracking throughout the quiz
+- Skip question functionality
+- Final score summary displayed at completion
+
+## Natural Language Processing (NLP) Simulation
+
+The chatbot recognises user intent through keyword detection and string matching.
+
+Supported intents include:
+
+- Add Task
+- Set Reminder
+- Start Quiz
+- Show Activity Log
+
+Example supported commands:
+
+"Add a task to enable 2FA"
+"Remind me to update my password in 2 days"
+"Quiz me"
+"Start quiz"
+"Show activity log"
+"What have you done for me?"
+
+## Activity Log
+- Records important chatbot actions
+- Logs task creation
+- Logs task completion
+- Logs task deletion
+- Logs reminder creation
+- Logs quiz activity
+- Displays the most recent actions
+- Supports viewing the complete activity history
+
+## Additional Programming Concepts Used
+- JSON data storage and retrieval
+- Activity tracking and logging
+- NLP simulation using string manipulation
+- Task management systems
+- Interactive quiz systems
+- Advanced WPF event handling
+
+## Releases
+
+### Release 1 - Part 1
+
+Initial cybersecurity awareness chatbot featuring:
+
+* Keyword recognition
+* Cybersecurity guidance
+* Input validation
+* Console-based interaction
+
+### Release 2 - Part 2
+
+Enhanced chatbot featuring:
+
+* WPF graphical user interface
+* Sentiment detection
+* User memory system
+* Audio greeting
+* Personalised responses
+
+### Release 3 - Part 3
+
+Final chatbot release featuring:
+
+* Task Assistant
+* Reminder System
+* Activity Log
+* Cybersecurity Quiz
+* NLP Simulation
+* JSON task storage
+
+## Application Screenshots
+
+![GitHub Actions](screenshots/gui-2.png)
+
 ---
+
+## GitHub Actions Build Status
+
+![GitHub Actions](screenshots/github-actions.png)
+
+---
+
+## YouTube Presentation Video
+
+https://youtu.be/VPbCCZRxPAM
 
 ## References
 

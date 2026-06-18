@@ -25,26 +25,18 @@ namespace CybersecurityChatbot
 
         // Starting greeting
         public string GetGreeting()
-{
-    return
-@"   ____        _               ____        _
-  / ___| _   _| |__   ___ _ __| __ )  ___ | |_
- | |    | | | | '_ \ / _ \ '__|  _ \ / _ \| __|
- | |___ | |_| | |_) |  __/ |  | |_) | (_) | |_
-  \____| \__, |_.__/ \___|_|  |____/ \___/ \__|
-         |___|
+        {
+            return
 
-Welcome to the Cybersecurity Awareness Bot.
-
-What is your name?";
-}
+        "Welcome to the Cybersecurity Awareness Bot. What is your name?";
+        }
 
         // Main chatbot processing method
         public string ProcessInput(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                return "I didn't receive anything. Please type a message so i can help you.";
+                return "I didn't receive anything. Please type a message so I can help you.";
             }
 
             input = input.ToLower();
@@ -68,7 +60,7 @@ What is your name?";
                 if (!string.IsNullOrEmpty(lastTopic))
                 {
                     return $"Here is more information about {lastTopic}:\n" +
-                    keywords.GetAnotherResponse(lastTopic);
+                           keywords.GetAnotherResponse(lastTopic);
                 }
                 else
                 {
@@ -98,12 +90,74 @@ What is your name?";
                 }
             }
 
-            // STEP 4: Sentiment detection
+            // STEP 4: Activity Log Requests
+            if (input.Contains("show activity log") ||
+                input.Contains("show log") ||
+                input.Contains("what have you done for me") ||
+                input.Contains("recent actions"))
+            {
+                var activities = ActivityLogger.GetActivities();
+
+                if (activities.Count == 0)
+                {
+                    return "No activities have been recorded yet.";
+                }
+
+                string logText = "Recent Activities:\n\n";
+
+                int start = activities.Count > 5
+                    ? activities.Count - 5
+                    : 0;
+
+                for (int i = start; i < activities.Count; i++)
+                {
+                    logText += activities[i] + "\n";
+                }
+
+                return logText;
+            }
+
+            // STEP 4B: Show Full Activity Log
+            if (input.Contains("show more") ||
+                input.Contains("full log") ||
+                input.Contains("all activities"))
+            {
+                var activities = ActivityLogger.GetActivities();
+
+                if (activities.Count == 0)
+                {
+                    return "No activities have been recorded yet.";
+                }
+
+                string logText = "Complete Activity Log:\n\n";
+
+                foreach (string activity in activities)
+                {
+                    logText += activity + "\n";
+                }
+
+                return logText;
+            }
+
+            // STEP 4C: Quiz Intents
+            if (input.Contains("start quiz") ||
+                input.Contains("quiz me") ||
+                input.Contains("take quiz") ||
+                input.Contains("take a quiz") ||
+                input.Contains("test my knowledge") ||
+                input.Contains("play the game"))
+            {
+                return "Great! Click on the Quiz tab to begin the Cybersecurity Quiz and test your knowledge.";
+            }
+
+            // STEP 5: Sentiment detection
             Sentiment sentiment = sentimentDetector.Detect(input);
 
-            string sentimentResponse = sentimentDetector.GetSentimentResponse(sentiment);
+            string sentimentResponse =
+                sentimentDetector.GetSentimentResponse(sentiment);
 
-            string keywordResponse = keywords.GetResponse(input);
+            string keywordResponse =
+                keywords.GetResponse(input);
 
             // Combine response properly
             if (keywordResponse != null)
@@ -114,7 +168,8 @@ What is your name?";
 
                 if (!string.IsNullOrEmpty(lastTopic))
                 {
-                    personalised = $"As someone interested or worried about {lastTopic}, ";
+                    personalised =
+                        $"As someone interested or worried about {lastTopic}, ";
                 }
 
                 return sentimentResponse +
@@ -136,15 +191,15 @@ What is your name?";
             if (input.Contains("what can i ask"))
             {
                 return "You can ask me about cybersecurity topics such as:\n\n" +
-                         "- Password safety (how to create strong passwords)\n" +
-                         "- Phishing (how to identify fake emails and links)\n" +
-                         "- Scams (how to avoid getting scammed online)\n" +
-                         "- Online privacy (how to protect your personal information)\n" +
-                         "- Malware protection (how to avoid viruses and unsafe downloads)\n" +
-                         "- Two-factor authentication (extra account security)\n" +
-                         "- Safe browsing (how to use the internet securely)\n" +
-                         "- Social media safety (how to protect your identity and privacy online)\n" +
-                         "- Public WiFi safety (how to avoid risks on unsecured networks)\n\n";
+                       "- Password safety (how to create strong passwords)\n" +
+                       "- Phishing (how to identify fake emails and links)\n" +
+                       "- Scams (how to avoid getting scammed online)\n" +
+                       "- Online privacy (how to protect your personal information)\n" +
+                       "- Malware protection (how to avoid viruses and unsafe downloads)\n" +
+                       "- Two-factor authentication (extra account security)\n" +
+                       "- Safe browsing (how to use the internet securely)\n" +
+                       "- Social media safety (how to protect your identity and privacy online)\n" +
+                       "- Public WiFi safety (how to avoid risks on unsecured networks)\n\n";
             }
 
             if (input.Contains("thank you"))
@@ -153,7 +208,7 @@ What is your name?";
             }
 
             // STEP 7: Default fallback response
-            return "I'm not sure I understand that yet. " + "Try asking about passwords, phishing, scams, privacy, malware, 2fa, social media safety, public WiFi safety or safe browsing.";
+            return "I'm not sure I understand that yet. Try asking about passwords, phishing, scams, privacy, malware, 2FA, social media safety, public WiFi safety or safe browsing.";
         }
     }
 }
